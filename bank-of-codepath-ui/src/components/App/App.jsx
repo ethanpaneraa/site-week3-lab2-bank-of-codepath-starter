@@ -18,7 +18,10 @@ export default function App() {
     <div className="App">
       {/* <Navbar /> */}
       <BrowserRouter>
-        <Navbar />
+        <Navbar 
+        filterInputValue={filterInputValue}
+        setFilterInputValue={setFilterInputValue} 
+        />
         <main>
           <Routes>
             <Route 

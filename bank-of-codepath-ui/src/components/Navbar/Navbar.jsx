@@ -2,15 +2,26 @@ import * as React from "react"
 import FilterInput from "../FilterInput/FilterInput"
 import codepath from "../../assets/codepath.svg"
 import avatar from "../../assets/avatar.png"
+import Logo from "../Logo/Logo"; 
 import "./Navbar.css"
 
-export default function Navbar() {
+export default function Navbar({ filterInputValue, setFilterInputValue }) {
+
+  const handleOnInputChange = (event) => {
+
+    setFilterInputValue(event.target.value); 
+
+  }
+
   return (
     <nav className="navbar">
-      <a className="logo">Logo</a>
+      <Logo path="/" logoPath={codepath} />
 
       <div className="search">
-        <FilterInput />
+        <FilterInput 
+          inputValue={filterInputValue}
+          handleOnChange={handleOnInputChange} 
+        />
       </div>
 
       <div className="user">
@@ -30,10 +41,10 @@ export default function Navbar() {
   )
 }
 
-export function Logo() {
-  return (
-    <a className="logo">
-      <img src={codepath} alt="logo" />
-    </a>
-  )
-}
+// export function Logo() {
+//   return (
+//     <a className="logo">
+//       <img src={codepath} alt="logo" />
+//     </a>
+//   )
+// }
